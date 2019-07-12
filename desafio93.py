@@ -16,13 +16,14 @@ gols_por_partida = list()
 for i in range(1, quantidade_partidas + 1):
     while True:
         try:
-            gols_por_partida.append(int(input(f'Quantos gols na partida {i}? ')))
+            gols_por_partida.append(int(input(f'    Quantos gols na partida {i}? ')))
             break
         except(TypeError, ValueError):
             print('Você deve digitar um número inteiro.')
 jogador['nome'] = nome
-jogador['gols'] = gols_por_partida
-jogador['total'] = sum(gols_por_partida)
+jogador['gols'] = gols_por_partida.copy()
+del gols_por_partida
+jogador['total'] = sum(jogador['gols'])
 
 print('-=' * 30)
 print(jogador)
