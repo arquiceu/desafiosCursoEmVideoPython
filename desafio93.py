@@ -6,7 +6,12 @@
 
 jogador = dict()
 nome = str(input('Digite o nome do jogador: ')).strip()
-quantidade_partidas = int(input(f'Quantas partidas {nome} jogou? '))
+while True:
+    try:
+        quantidade_partidas = int(input(f'Quantas partidas {nome} jogou? '))
+        break
+    except(TypeError, ValueError):
+        print('Você deve digitar um número inteiro.')
 gols_por_partida = list()
 for i in range(1, quantidade_partidas + 1):
     while True:
