@@ -7,21 +7,24 @@
 from time import sleep
 
 
-def contador(de, ate, passo):
+def contador(inicio, fim, passo):
     print('-=' * 15)
-    print(f'Contagem de {de} ate {ate} de {abs(passo)} em {abs(passo)}')
-    if de < ate:
-        for i in range(de, ate + 1, passo):
+    if inicio == fim:
+        passo = 1
+    if passo == 0:
+        passo = 1
+    print(f'Contagem de {inicio} ate {fim} de {abs(passo)} em {abs(passo)}')
+    if inicio < fim:
+        for i in range(inicio, fim + 1, passo):
             print(i, end=' ', flush= True)
             sleep(.5)
         print('FIM!')
-    elif de > ate:
-        for i in range(de, ate - 1, -abs(passo)):
+    elif inicio > fim:
+        for i in range(inicio, fim - 1, -abs(passo)):
             print(i, end=' ', flush = True)
             sleep(.5)
         print('FIM!')
     print('\n')
-
 
 
 contador(1, 10, 1)
@@ -33,4 +36,3 @@ inicio = int(input('Inicio: '))
 fim = int(input('Fim: '))
 passo = int(input('Passo: '))
 contador(inicio, fim, passo)
-
